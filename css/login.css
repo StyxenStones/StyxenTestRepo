@@ -1,0 +1,77 @@
+body {
+    background: #dbb25d;
+    font-family: 'Garamond', sans-serif;
+}
+
+input[type=login] {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    border-top: 0px;
+    border-radius: 5px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.btn-login {
+    margin-left: 20px;
+    margin-right: 245px;
+    margin-bottom: 20px;
+}
+
+.btn-signup {
+    margin-bottom: 20px;
+}
+
+.form {
+    margin-bottom: 40px;
+    outline: 10px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid #0DB8DE;
+    outline: 10;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.form-control-label {
+    font-size: 10px;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+.login-box {
+    margin-top: 75px;
+    height: auto;
+    background: #edd9af;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.30), 0 3px 6px rgba(0, 0, 0, 0.90);
+}
+
+.login-title {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+}
