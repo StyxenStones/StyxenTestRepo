@@ -8,7 +8,7 @@ const MainPage = () =>
 
     return(
       <div>
-        <LoggedInName />
+        <Header />
         <Main />
       </div>
     );
