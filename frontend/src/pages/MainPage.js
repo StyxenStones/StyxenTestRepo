@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Main from '../components/Main';
-import LoggedInName from '../components/Header';
+import Header from '../components/Header';
 
 const MainPage = () =>
 {
