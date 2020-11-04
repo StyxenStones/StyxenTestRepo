@@ -18,24 +18,23 @@ function Header()
 
     };
 
-    const openNotifications = event => 
+    const openNotifications = event => //Needs to open notification window
     {
 	    event.preventDefault();
     };
-
-    const openSettings = event => 
+    const openSettings = event => //Needs to send to settings page
     {
         event.preventDefault();
     };
-    const openAccount = event => 
+    const openAccount = event => //Needs to send to Account page
     {
         event.preventDefault();
-    };  
-    const openGroup = event => 
+    };
+    const openGroup = event => //Needs to be changed to work with dropdown menu to select active group
     {
         event.preventDefault();
         alert('Needs dropdown not button');
-    }; 
+    };
 
     return(
         <div id="headerDiv">
