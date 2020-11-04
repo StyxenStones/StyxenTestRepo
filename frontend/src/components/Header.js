@@ -16,15 +16,31 @@ function Header()
         localStorage.removeItem("user_data")
         window.location.href = '/';
 
-    };    
+    };
 
-  return(
-   <div id="headerDiv">
-   <span id="userName">Logged In As {firstName} {lastName}</span><br />
-   <button type="button" id="logoutButton" class="buttons"
-     onClick={doLogout}> Log Out </button>
-   </div>
-  );
+    const openNotifications = event => 
+    {
+	    event.preventDefault();
+    };
+
+    const openNotifications = event => 
+    {
+        event.preventDefault();
+    };
+    const openNotifications = event => 
+    {
+        event.preventDefault();
+    };  
+
+    return(
+        <div id="headerDiv">
+            <button type="button" id="AccountButton" class="buttons" onClick={openAccount}> {firstName} </button>
+            <span id="groupSelector">Group</span><br />
+            <button type="button" id="notificationsButton" class="buttons" onClick={openNotifications}> Notifications </button>
+            <button type="button" id="settingsButton" class="buttons" onClick={openSettings}> Settings </button>
+            <button type="button" id="logoutButton" class="buttons" onClick={doLogout}> Log Out </button>
+        </div>
+    );
 };
 
 export default Header;
