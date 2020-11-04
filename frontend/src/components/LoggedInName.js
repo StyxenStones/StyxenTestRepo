@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoggedInName()
+function Header()
 {
 
     var _ud = localStorage.getItem('user_data');
@@ -19,7 +19,7 @@ function LoggedInName()
     };    
 
   return(
-   <div id="loggedInDiv">
+   <div id="headerDiv">
    <span id="userName">Logged In As {firstName} {lastName}</span><br />
    <button type="button" id="logoutButton" class="buttons"
      onClick={doLogout}> Log Out </button>
@@ -27,4 +27,4 @@ function LoggedInName()
   );
 };
 
-export default LoggedInName;
+export default Header;
