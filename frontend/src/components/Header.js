@@ -23,11 +23,11 @@ function Header()
 	    event.preventDefault();
     };
 
-    const openNotifications = event => 
+    const openSettings = event => 
     {
         event.preventDefault();
     };
-    const openNotifications = event => 
+    const openAccount = event => 
     {
         event.preventDefault();
     };  
