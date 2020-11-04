@@ -28,7 +28,6 @@ function Register()
     var regPassword;
     var regConfirm;
     var regEmail;
-    var userID = '2';
 
     const [message,setMessage] = useState('');
 
@@ -41,7 +40,7 @@ function Register()
             if(regPassword.value == regConfirm.value)
             {
 
-                var obj = {userID:userID,email:regEmail.value,login:regLogin.value,
+                var obj = {email:regEmail.value,login:regLogin.value,
                     password:regPassword.value,firstName:regFName.value,lastName:regLName.value};
                 var js = JSON.stringify(obj);
 
