@@ -34,7 +34,8 @@ function createMoviesList()
   // the div with children inside
     MoviesDiv =  React.createElement("div", {className: "contexCon"},children);
 }
-funtion movieButton()
+
+function movieButton()
 {
     var modal = document.getElementById("form");
     modal.aria-hidden =  false;
