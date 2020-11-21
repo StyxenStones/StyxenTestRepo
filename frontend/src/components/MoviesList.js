@@ -82,7 +82,7 @@ function MoviesList() {
                                 </button>
                             </div>
                             <div>
-                                <form onSubmit={addGroup}>
+                                <form>
                                     <div class="modal-body">
                                         <h1 id="title">Movie Name</h1>
                                         <h3 id="title">Overview</h3>
