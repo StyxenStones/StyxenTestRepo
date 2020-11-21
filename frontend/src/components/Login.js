@@ -162,7 +162,7 @@ const forgotClick = async event => {
                 </form>
                 <span id="loginResult">{message}</span>
                 <div id='resetDiv'>
-                    <p onclick="resetClick">Forgot Password?</p>
+                    <button type="submit" className="btn btn-dark btn-block" onclick="resetClick">Forgot Password?</button>
                 </div>
                 <div id='verifyDiv'>
                 </div>
