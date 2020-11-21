@@ -38,7 +38,7 @@ function createMoviesList()
 function movieButton()
 {
     var modal = document.getElementById("form");
-    modal.aria-hidden =  false;
+    modal.aria.hidden =  false;
 }
 
 function MoviesList() {
