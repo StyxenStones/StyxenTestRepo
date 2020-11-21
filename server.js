@@ -27,11 +27,11 @@ app.use(cors());
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
-// token expires after 30 minutes
-//const sessionLength = 1800000;
+// token expires after 1 hour
+const sessionLength = 3600000;
 
 //expiration time of 0 makes token last for duration of browser session
-const sessionLength = 0;
+//const sessionLength = 0;
 
 //automatically refresh movies every thursday at midnight
 var refreshMovies = schedule.scheduleJob('0 0 * * 4', async function(){
@@ -79,17 +79,23 @@ app.post('/API/AddUser', async (req, res, next) =>
 
   const { email, login, password, firstName, lastName } = req.body;
   const db = client.db();
-  db.collection('users').insertOne({email:email,login:login,password:password,firstName:firstName,
-    lastName:lastName,isVerified:false,vToken:null,pToken:null, friends: []}, async (error, result) => {
-      if(error){
-        err = error;
-      }
-      else{
-        const vToken = jwt.sign(result.ops[0], jwtKey);
-        db.collection('users').update({_id : new mongo.ObjectID(result.ops[0]._id)}, {$set: {vToken: vToken}});
-       err = await SendEmailVerification(email, vToken);
-      }
-    });
+  const results = await db.collection('users').find({email:email}).toArray();
+  if(results.length > 0){
+    err = 'Email already used';
+  }
+  else {
+    db.collection('users').insertOne({email:email,login:login,password:password,firstName:firstName,
+      lastName:lastName,isVerified:false,vToken:null,pToken:null, friends: []}, async (error, result) => {
+        if(error){
+          err = error;
+        }
+        else{
+          const vToken = jwt.sign(result.ops[0], jwtKey);
+          db.collection('users').update({_id : new mongo.ObjectID(result.ops[0]._id)}, {$set: {vToken: vToken}});
+         err = await SendEmailVerification(email, vToken);
+        }
+      });
+  }
 
   var ret = { error: err };
   res.status(200).json(ret);
@@ -115,8 +121,14 @@ app.post('/API/EditUser', async (req, res, next) =>
           }
           else{
             const db = client.db();
-            db.collection('users').update({_id: new mongo.ObjectID(userID)},{$set:{email:email,login:login,password:password,
-              firstName:firstName,lastName:lastName}})
+            if(password){
+              db.collection('users').update({_id: new mongo.ObjectID(userID)},{$set:{email:email,login:login,password:password,
+                firstName:firstName,lastName:lastName}})
+            }
+            else{
+              db.collection('users').update({_id: new mongo.ObjectID(userID)},{$set: {email:email,login:login,
+                firstName:firstName,lastName:lastName}})
+            }
           }
         }
       });
@@ -918,7 +930,7 @@ app.post("/API/Reset", async (req, res, next) =>
     jwt.verify(token, jwtKey, (err, decoded) =>
     {
       if (err) {
-        res.status(200).json({ success: false, message: "Failed to verify token" });
+        res.status(200).json({ success: false, message: "Failed to verify token"});
       }
       else {
         var found = false;
@@ -926,7 +938,7 @@ app.post("/API/Reset", async (req, res, next) =>
           if(userInfo._id == decoded._id ){
             found = true;
             db.collection('users').update({_id: new mongo.ObjectID(userInfo._id)},{$set: {isVerified: true, pToken: null}});
-            res.status(200).json({success: true, message: "User verified"});
+            res.status(200).json({success: true, message: "User verified", userInfo: decoded});
           }
         });
         //this case really shouldn't be possible but ya never know
