@@ -50,7 +50,7 @@ const forgotClick = async event => {
     event.preventDefault();
 
     var div = document.getElementById("resetDiv");
-    div.innerHTML += "Enter Your Accounts Email Here";
+    div.innerHTML += "Enter Your Account's Email Here";
     var temp = document.createElement('input');
     temp.type = "text";
     temp.className = "form-control";
@@ -65,32 +65,32 @@ const forgotClick = async event => {
     temp.innerHTML = "Reset";
     temp.addEventListener("click", doReset);
     div.appendChild(temp);
+};
 
-    const doReset = async event => {
-        event.preventDefault();
+const doReset = async event => {
+    event.preventDefault();
 
-        var obj = {email:document.getElementById("resetEmail").value};
-        var js = JSON.stringify(obj);
+    var obj = {email:document.getElementById("resetEmail").value};
+    var js = JSON.stringify(obj);
 
-        //API call
-        try {
-                const response = await fetch(buildPath('api/PasswordReset'), {
-                    method:'POST',body:js,headers:{
-                        'Content-Type': 'application/json'
-                    }
+    //API call
+    try {
+            const response = await fetch(buildPath('api/PasswordReset'), {
+                method:'POST',body:js,headers:{
+                    'Content-Type': 'application/json'
+                }
 
-                });
-
-                temp = document.createElement("text");
-                temp.innerHTML = "Email Sent";
-                div.appendChild(temp); // Adds text to the div
-            }
-        catch(e)
-        {
-            alert(e.toString());
-            return;
+            });
+            var div = document.getElementById("resetDiv");
+            var temp = document.createElement("text");
+            temp.innerHTML = "Email Sent";
+            div.appendChild(temp); // Adds text to the div
         }
-    };
+    catch(e)
+    {
+        alert(e.toString());
+        return;
+    }
 };
 
     function Login() {
