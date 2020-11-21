@@ -31,7 +31,7 @@ var user;
             event.preventDefault();
             if(resPassword.value == confirm.value)
             {
-                var obj = {email:resEmail,login:resLogin,
+                var obj = {token:token,email:resEmail,login:resLogin,
                     password:CryptoJS.MD5(resPassword.value).toString(),firstName:resFName,lastName:resLName};;
                 var js = JSON.stringify(obj);
 
@@ -43,7 +43,6 @@ var user;
                     });
 
                 var res = JSON.parse(await response.text());
-                setMessage("Passwords Don't Match");
                
                 } catch(e) {
                     alert(e.toString());
