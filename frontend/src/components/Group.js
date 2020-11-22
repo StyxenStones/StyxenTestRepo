@@ -24,9 +24,29 @@ var editGroupName;
 var editGroupDescription;
 var addMemberId;
 
+var userToAdd;
+
 const doAddMember = async event => // Needs to Take in userID to add and make API call
 {
     event.preventDefault();
+
+    var obj = {token:token,groupID:groupId,userID:userToAdd.value};
+    var js = JSON.stringify(obj);
+
+    //API call
+    try {
+            const response = await fetch(buildPath('api/AddUserToGroup'), {
+                method:'POST',body:js,headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+            window.location.href = '/main'
+        }
+    catch(e)
+    {
+        alert(e.toString());
+        return;
+    }
 };
 
 const doEditGroup = async event => // Needs to make API call and Replace localstorage with new info
@@ -113,7 +133,37 @@ function Group() {
                 </div>
                 <div id="memberButtons">
                 </div>
-                <button type="button" id="addMemberButton" class="buttons"> Add Member </button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form2">
+                    Edit Group
+                </button>
+                <div>
+                    <div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Member</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <form onSubmit={doEditGroup}>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="groupname">User Code</label>
+                                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="User Code" ref={(c) => addMemberId = c}></input>
+                                                <small id="group-name" class="form-text text-muted">Located On The User's Account Page</small>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-success" onClick={doAddMember}>Add</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="groupMoviesDiv">
                 <GroupMoviesList />
