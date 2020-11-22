@@ -13,7 +13,7 @@ function buildPath(route) {
 var movieId;
 var userId
 var token;
-var groupIds[];
+var groupIds;
 
 const voteYes = async event => // Add movie to yes list and return to main
 {
@@ -89,6 +89,7 @@ function Movie() {
 
     var _gd = localStorage.getItem('group_List');
     var gd = JSON.parse(_gd);
+    groupIds = new Array();
     for(i = 0; i < gd.groups.length; i++)
     {
         groupIds.push(gd.groups[i].id);
