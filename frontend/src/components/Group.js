@@ -92,7 +92,7 @@ function createMemberList()
         try {
                 xhr.send(js);
 
-                ret = JSON.parse(xhr.responseText); // Adds response to moviesList
+                var ret = JSON.parse(xhr.responseText);
                 nameList.push(ret.login);
             }
         catch(e)
