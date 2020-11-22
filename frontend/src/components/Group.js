@@ -79,14 +79,14 @@ function Group() {
                 </div>
             </div>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
-                Add New Group
+                Edit Group
             </button>
                 <div>
                 <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header border-bottom-0">
-                        <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Group</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -96,12 +96,12 @@ function Group() {
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="groupname">Group Name</label>
-                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="Enter group name" ref={(c) => editGroupName = c}></input>
+                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder={groupName} ref={(c) => editGroupName = c}></input>
                                 <small id="group-name" class="form-text text-muted">Name your group</small>
                             </div>
                             <div class="form-group">
                                 <label for="group-description">Group Description</label>
-                                <input type="text" class="form-control" id="group-description" aria-describedby="group-description" placeholder="Enter group description" ref={(c) => editGroupDescription = c}></input>
+                                <input type="text" class="form-control" id="group-description" aria-describedby="group-description" placeholder={groupDescription} ref={(c) => editGroupDescription = c}></input>
                                 <small id="group-description" class="form-text text-muted">Describe your group</small>
                             </div>
                         </div>
