@@ -102,7 +102,7 @@ function Group() {
     groupName = gd.name;
     groupDescription = gd.description;
     members = gd.members;
-    createMemberList():
+    createMemberList();
 
     var _ud = localStorage.getItem('user_data');
     var ud = JSON.parse(_ud);
