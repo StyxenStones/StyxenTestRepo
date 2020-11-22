@@ -27,6 +27,7 @@ var addMemberId;
 var userToAdd;
 
 var MemberList;
+var nameList;
 
 const doAddMember = async event => // Needs to Take in userID to add and make API call
 {
@@ -77,10 +78,33 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 function createMemberList()
 {
     var i;
+    nameList = new Array();
+
+    for(i = 0; i < members.length; i++)
+    {
+        var obj = {userID:members[i].userID};
+        var js = JSON.stringify(obj);
+
+        // API Call
+        var xhr = new XMLHttpRequest();
+    	xhr.open("POST", buildPath('api/GetUserByID'), false);
+    	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try {
+                xhr.send(js);
+
+                ret = JSON.parse(xhr.responseText); // Adds response to moviesList
+                nameList.push(ret.login);
+            }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }
+    }
 
     let children = members.map((val, index) => {
       return (
-        React.createElement("button", {id: index, onClick: () =>openAccount(val)}, val.userID)
+        React.createElement("button", {id: index, onClick: () =>openAccount(val)}, nameList[index])
       )
     })
     // the div with children inside
