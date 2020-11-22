@@ -13,57 +13,66 @@ function buildPath(route) {
 var movieId;
 var userId
 var token;
+var groupIds;
 
 const voteYes = async event => // Add movie to yes list and return to main
 {
     event.preventDefault();
+    var i;
 
-    var obj = {token:token,userID:userId,movieID:movieId,liked:true};
-    var js = JSON.stringify(obj);
-
-    //API call
-    try {
-            const response = await fetch(buildPath('api/AddMovieToList'), {
-                method:'POST',body:js,headers:{
-                    'Content-Type': 'application/json'
-                }
-
-            });
-            window.location.href = '/main';
-        }
-    catch(e)
+    for(i = 0; i < groupIds.length; i++)
     {
-        alert(e.toString());
-        return;
+        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:true};
+        var js = JSON.stringify(obj);
+
+        //API call
+        try {
+                const response = await fetch(buildPath('api/AddMovieToList'), {
+                    method:'POST',body:js,headers:{
+                        'Content-Type': 'application/json'
+                    }
+
+                });
+                window.location.href = '/main';
+            }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }
     }
 };
 
 const voteNo = async event => // Add movie to no list and return to main
 {
     event.preventDefault();
+    var i;
 
-    var obj = {token:token,userID:userId,movieID:movieId,liked:false};
-    var js = JSON.stringify(obj);
-
-    //API call
-    try {
-            const response = await fetch(buildPath('api/AddMovieToList'), {
-                method:'POST',body:js,headers:{
-                    'Content-Type': 'application/json'
-                }
-
-            });
-            window.location.href = '/main';
-        }
-    catch(e)
+    for(i = 0; i < groupIds.length; i++)
     {
-        alert(e.toString());
-        return;
+        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:true};
+
+        //API call
+        try {
+                const response = await fetch(buildPath('api/AddMovieToList'), {
+                    method:'POST',body:js,headers:{
+                        'Content-Type': 'application/json'
+                    }
+
+                });
+                window.location.href = '/main';
+            }
+        catch(e)
+        {
+            alert(e.toString());
+            return;
+        }
     }
 };
 
 function Movie() {
 
+    var i;
     var _ud = localStorage.getItem('user_data');
     var ud = JSON.parse(_ud);
     userId = ud.id;
@@ -76,6 +85,14 @@ function Movie() {
     var releaseDate = md.release_date;
     var score = md.vote_average;
     movieId = md.id;
+
+    var _gd = localStorage.getItem('group_List');
+    var gd = JSON.parse(_gd);
+    for(i = 0; i < gd.groups.length; i++)
+    {
+        groupsIds.push(gd.groups[i].id);
+    }
+
 
     return(
         <div>
