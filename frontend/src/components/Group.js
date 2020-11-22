@@ -74,7 +74,7 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 
 function createMemberList()
 {
-    
+
 }
 
 function Group() {
@@ -156,7 +156,7 @@ function Group() {
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="groupname">User Code</label>
-                                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="User Code" ref={(c) => addMemberId = c}></input>
+                                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="User Code" ref={(c) => userToAdd = c}></input>
                                                 <small id="group-name" class="form-text text-muted">Located On The User's Account Page</small>
                                             </div>
                                         </div>
