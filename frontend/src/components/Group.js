@@ -25,9 +25,9 @@ var editGroupDescription;
 var addMemberId;
 
 const doAddMember = async event => // Needs to Take in userID to add and make API call
-    {
+{
     event.preventDefault();
-    };
+};
 const doEditGroup = async event => // Needs to make API call and Replace localstorage with new info
 {
     event.preventDefault();
@@ -44,6 +44,7 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
             });
             gd.name = editGroupName;
             gd.description = editGroupDescription;
+            localStorage.removeItem("group_info");
             localStorage.setItem("group_info",JSON.stringify(gd));
             window.location.reload(false);
         }
