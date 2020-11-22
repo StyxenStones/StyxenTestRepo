@@ -74,7 +74,24 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 
 function createMemberList()
 {
+    var i;
+    var div = document.getElementbyId("memberButtons");
 
+    for(i = 0; i < members.length; i++)
+    {
+        var button = document.createElement("button");
+        button.type = "submit";
+        button.className = "btn btn-danger";
+        button.innerHTML = member.userID;
+        button.addEventListener("click", openAccount(member.userID));
+        div.appendChild(button);
+    }
+}
+
+function openAccount(id)
+{
+    localStorage.setItem('current_account', id);
+    window.location.href = '/account';
 }
 
 function Group() {
