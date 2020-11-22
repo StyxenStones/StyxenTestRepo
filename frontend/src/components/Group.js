@@ -42,7 +42,7 @@ function Group() {
 
     var _gd = localStorage.getItem('group_info');
     var gd = JSON.parse(_gd);
-    groupId = gd.id;
+    groupId = gd._id;
     groupName = gd.name;
     groupDescription = gd.description;
     members = gd.members;
