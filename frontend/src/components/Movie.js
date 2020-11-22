@@ -14,7 +14,7 @@ var movieId;
 var userId
 var token;
 
-const voteYes = event => // Add movie to yes list and return to main
+const voteYes = async event => // Add movie to yes list and return to main
 {
     event.preventDefault();
 
