@@ -4,6 +4,7 @@ import Gallery from './Gallery';
 import GroupsList from './GroupsList';
 import MoviesList from './MoviesList'
 import {Helmet} from "react-helmet";
+import '../bootstrap.min.css';
 
 const app_name = 'cine-mates'
 function buildPath(route) {
@@ -92,7 +93,7 @@ function Main() {
             <div class="container">
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
                 Add New Group
-            </button>
+            </button>  
                 <div>
                 <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
