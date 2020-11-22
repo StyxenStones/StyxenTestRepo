@@ -28,17 +28,11 @@ function createMoviesList()
 {
   let children = moviesList.movies.map((val, index) => {
     return (
-      React.createElement("button", {id: index, onClick: () =>movieButton()}, val.title)
+      React.createElement("button", {id: index}, val.title)
     )
   })
   // the div with children inside
     MoviesDiv =  React.createElement("div", {className: "contexCon"},children);
-}
-
-function movieButton()
-{
-    var modal = document.getElementById("movieForm");
-    modal.aria.hidden =  false;
 }
 
 function MoviesList() {
@@ -70,33 +64,7 @@ function MoviesList() {
     }
     return(
         <div>
-            {MoviesDiv}
-            <div>
-                <div class="modal fade" id="movieForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header border-bottom-0">
-                                <h5 class="modal-title" id="exampleModalLabel">Movie Name</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div>
-                                <form>
-                                    <div class="modal-body">
-                                        <h1 id="title">Movie Name</h1>
-                                        <h3 id="title">Overview</h3>
-                                        <h3 id="title">Release Date</h3>
-                                    </div>
-                                    <div class="modal-footer border-top-0 d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        {MoviesDiv}
         </div>
     );
 }
