@@ -38,7 +38,7 @@ const voteYes = async event => // Add movie to yes list and return to main
     }
 };
 
-const voteNo = event => // Add movie to no list and return to main
+const voteNo = async event => // Add movie to no list and return to main
 {
     event.preventDefault();
 
