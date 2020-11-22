@@ -86,7 +86,7 @@ function createMemberList()
         button.addEventListener("click", () =>openAccount(members[i].userID));
         div.appendChild(button);
     }
-    document.getElementById("memberButtons").appendChild(div);
+    document.getElementById("groupInfo").appendChild(div);
 }
 
 function openAccount(id)
