@@ -23,7 +23,7 @@ const voteYes = async event => // Add movie to yes list and return to main
 
     for(i = 0; i < groupIds.length; i++)
     {
-        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:true};
+        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:md,liked:true};
         var js = JSON.stringify(obj);
 
         //API call
