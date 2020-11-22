@@ -15,6 +15,8 @@ var userId;
 var login;
 var token;
 
+var groupId;
+
 // Will contain info from the API calls
 var moviesList;
 
@@ -51,7 +53,7 @@ function GroupMoviesList() {
 
     var _gd = localStorage.getItem('group_info');
     var gd = JSON.parse(_gd);
-    var groupId = gd.id;
+    groupId = gd.id;
 
     var obj = {groupID:groupId};
     var js = JSON.stringify(obj);
