@@ -15,6 +15,7 @@ var groupId;
 var groupName;
 var groupDescription;
 var members;
+var token;
 
 //Edit Group variables
 var editGroupName;
@@ -56,6 +57,10 @@ function Group() {
     groupName = gd.name;
     groupDescription = gd.description;
     members = gd.members;
+
+    var _ud = localStorage.getItem('user_data');
+    var ud = JSON.parse(_ud);
+    token = ud.token;
 
     return(
         <div>
