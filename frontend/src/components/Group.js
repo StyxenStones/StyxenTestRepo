@@ -82,8 +82,8 @@ function createMemberList()
         var button = document.createElement("button");
         button.type = "submit";
         button.className = "btn btn-danger";
-        button.innerHTML = members.userID;
-        button.addEventListener("click", openAccount(members.userID));
+        button.innerHTML = members[i].userID;
+        button.addEventListener("click", openAccount(members[i].userID));
         div.appendChild(button);
     }
 }
