@@ -75,7 +75,7 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 function createMemberList()
 {
     var i;
-    var div = document.getElementbyId("memberButtons");
+    var div = document.getElementById("memberButtons");
 
     for(i = 0; i < members.length; i++)
     {
