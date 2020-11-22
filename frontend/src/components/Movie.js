@@ -14,6 +14,7 @@ var movieId;
 var userId
 var token;
 var groupIds;
+var md;
 
 const voteYes = async event => // Add movie to yes list and return to main
 {
@@ -50,7 +51,7 @@ const voteNo = async event => // Add movie to no list and return to main
 
     for(i = 0; i < groupIds.length; i++)
     {
-        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:false};
+        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:md,liked:false};
         var js = JSON.stringify(obj);
 
         //API call
@@ -80,7 +81,7 @@ function Movie() {
     token = ud.token;
 
     var _md = localStorage.getItem('movie_info');
-    var md = JSON.parse(_md);
+    md = JSON.parse(_md);
     var title = md.title;
     var overview = md.overview;
     var releaseDate = md.release_date;
