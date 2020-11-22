@@ -80,7 +80,6 @@ function createMemberList()
     for(i = 0; i < members.length; i++)
     {
         var button = document.createElement("button");
-        button.className = "btn btn-danger";
         button.innerHTML = members[i].userID;
         button.addEventListener("click", openAccount(members[i].userID));
         div.appendChild(button);
