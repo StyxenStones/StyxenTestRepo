@@ -17,6 +17,7 @@ var groupName;
 var groupDescription;
 var members;
 var token;
+var gd;
 
 //Edit Group variables
 var editGroupName;
@@ -41,6 +42,9 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
                     'Content-Type': 'application/json'
                 }
             });
+            gd.name = editGroupName;
+            gd.description = editGroupDescription;
+            localStorage.setItem("group_info",JSON.stringify(gd));
             window.location.reload(false);
         }
     catch(e)
@@ -53,7 +57,7 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 function Group() {
 
     var _gd = localStorage.getItem('group_info');
-    var gd = JSON.parse(_gd);
+    gd = JSON.parse(_gd);
     groupId = gd._id;
     groupName = gd.name;
     groupDescription = gd.description;
