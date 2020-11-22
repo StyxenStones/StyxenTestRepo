@@ -80,7 +80,7 @@ function createMemberList()
 
     let children = members.map((val, index) => {
       return (
-        React.createElement("button", {id: index, onClick: () =>openaccount(val)}, val.userID)
+        React.createElement("button", {id: index, onClick: () =>openAccount(val)}, val.userID)
       )
     })
     // the div with children inside
