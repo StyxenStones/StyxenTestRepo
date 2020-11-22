@@ -21,15 +21,11 @@ var editGroupName;
 var editGroupDescription;
 var addMemberId;
 
-const openAddMemberForm = event => // Needs to open add member form
+const doAddMember = async event => // Needs to Take in userID to add and make API call
     {
     event.preventDefault();
     };
-const doAddMember = event => // Needs to Take in userID to add and make API call
-    {
-    event.preventDefault();
-    };
-const doEditGroup = event => // Needs to make API call and Replace localstorage with new info
+const doEditGroup = async event => // Needs to make API call and Replace localstorage with new info
 {
     event.preventDefault();
 
@@ -68,7 +64,7 @@ function Group() {
                 <h3 id="groupDescription">{groupDescription}</h3>
                 <div id="memberButtons">
                 </div>
-                <button type="button" id="addMemberButton" class="buttons" onClick={openAddMemberForm}> Add Member </button>
+                <button type="button" id="addMemberButton" class="buttons"> Add Member </button>
             </div>
             <div id='groupMoviesDiv' >
                 <GroupMoviesList />
