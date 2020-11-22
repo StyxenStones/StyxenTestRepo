@@ -50,7 +50,8 @@ const voteNo = async event => // Add movie to no list and return to main
 
     for(i = 0; i < groupIds.length; i++)
     {
-        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:true};
+        var obj = {token:token,groupID:groupIds[i],userID:userId,movieID:movieId,liked:false};
+        var js = JSON.stringify(obj);
 
         //API call
         try {
@@ -90,7 +91,7 @@ function Movie() {
     var gd = JSON.parse(_gd);
     for(i = 0; i < gd.groups.length; i++)
     {
-        groupsIds.push(gd.groups[i].id);
+        groupIds.push(gd.groups[i].id);
     }
 
 
