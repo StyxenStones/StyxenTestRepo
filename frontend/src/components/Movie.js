@@ -13,7 +13,7 @@ function buildPath(route) {
 var movieId;
 var userId
 var token;
-var groupIds;
+var groupIds[];
 
 const voteYes = async event => // Add movie to yes list and return to main
 {
