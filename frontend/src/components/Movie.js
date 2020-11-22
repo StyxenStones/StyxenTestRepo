@@ -33,7 +33,6 @@ const voteYes = async event => // Add movie to yes list and return to main
                     }
 
                 });
-                window.location.href = '/main';
             }
         catch(e)
         {
@@ -41,6 +40,7 @@ const voteYes = async event => // Add movie to yes list and return to main
             return;
         }
     }
+    window.location.href = '/main';
 };
 
 const voteNo = async event => // Add movie to no list and return to main
@@ -61,7 +61,6 @@ const voteNo = async event => // Add movie to no list and return to main
                     }
 
                 });
-                window.location.href = '/main';
             }
         catch(e)
         {
@@ -69,6 +68,7 @@ const voteNo = async event => // Add movie to no list and return to main
             return;
         }
     }
+    window.location.href = '/main';
 };
 
 function Movie() {
