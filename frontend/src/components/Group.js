@@ -75,7 +75,7 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 function createMemberList()
 {
     var i;
-    var div = document.getElementById("memberButtons");
+    var div = document.createElement("div");
 
     for(i = 0; i < members.length; i++)
     {
@@ -86,6 +86,7 @@ function createMemberList()
         button.addEventListener("click", openAccount(members[i].userID));
         div.appendChild(button);
     }
+    document.getElementById("memberButtons").appendChild(div);
 }
 
 function openAccount(id)
