@@ -1,7 +1,4 @@
 import React from 'react';
-import Card from "react-bootstrap/Card";
-import { Button } from 'reactstrap';
-import '../bootstrap.min.css';
 
 const app_name = 'cine-mates'
 function buildPath(route) {
@@ -19,9 +16,9 @@ var token;
 var groupIds;
 var md;
 
-const voteYes = async event => // Add movie to yes list and return to main
+const voteYes = async event => // Add movie to yes list and return to main
 {
-    event.preventDefault();
+    event.preventDefault();
     var i;
 
     for(i = 0; i < groupIds.length; i++)
@@ -47,9 +44,9 @@ const voteYes = async event => // Add movie to yes list and return to main
     window.location.href = '/main';
 };
 
-const voteNo = async event => // Add movie to no list and return to main
+const voteNo = async event => // Add movie to no list and return to main
 {
-    event.preventDefault();
+    event.preventDefault();
     var i;
 
     for(i = 0; i < groupIds.length; i++)
@@ -99,22 +96,21 @@ function Movie() {
         groupIds.push(gd.groups[i]._id);
     }
 
-    var imageUrl = "https://api.themoviedb.org/3/movie/" + {movieId} + "/images?" + "api_key=" + {token} + "&language=en-US";
+
     return(
-        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-            <Card style={{ width: '80rem' }}>
-            <Card.Img variant="top" src={imageUrl}/>
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>{overview}</Card.Text>
-                <Card.Text>{releaseDate}</Card.Text>
-                <Card.Text>{score}</Card.Text>
-                <Button variant="primary" onClick={voteYes}>Yes</Button>
-                <Button variant="primary" onClick={voteNo}>No</Button>
-            </Card.Body>
-            </Card>
+        <div>
+            <div id="movieInfo">
+            <h1 id="title">{title}</h1>
+            <h3 id="overview">{overview}</h3>
+            <h3 id="releaseDate">{releaseDate}</h3>
+            <h3 id="score">{score}</h3>
+            </div>
+            <div id="vote">
+                <button type="button" id="yesButton" class="buttons" onClick={voteYes}> Yes </button>
+                <button type="button" id="noButton" class="buttons" onClick={voteNo}> No </button>
+            </div>
         </div>
-   );
+   );
 }
 
 export default Movie;
