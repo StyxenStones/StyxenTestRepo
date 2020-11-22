@@ -26,6 +26,8 @@ var addMemberId;
 
 var userToAdd;
 
+var MemberList;
+
 const doAddMember = async event => // Needs to Take in userID to add and make API call
 {
     event.preventDefault();
@@ -75,23 +77,19 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
 function createMemberList()
 {
     var i;
-    var div = document.createElement("div");
 
-    for(i = 0; i < members.length; i++)
-    {
-        var button = document.createElement("button");
-        button.type = "submit";
-        button.className = "btn btn-danger";
-        button.innerHTML = members[i].userID;
-        button.addEventListener("click", () =>openAccount(members[i].userID));
-        div.appendChild(button);
-    }
-    document.getElementById("groupInfo").appendChild(div);
+    let children = members.map((val, index) => {
+      return (
+        React.createElement("button", {id: index, onClick: () =>openaccount(val)}, val.userID)
+      )
+    })
+    // the div with children inside
+      MemberList =  React.createElement("div", {className: "contexCon"},children);
 }
 
-function openAccount(id)
+function openAccount(val)
 {
-    localStorage.setItem('current_account', id);
+    localStorage.setItem('current_account', val.userID);
     window.location.href = '/account';
 }
 
@@ -156,6 +154,7 @@ function Group() {
                     </div>
                 </div>
                 <div id="memberButtons">
+                    {MemberList}
                 </div>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form2">
                     Add Member
