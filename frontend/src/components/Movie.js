@@ -92,7 +92,7 @@ function Movie() {
     groupIds = new Array();
     for(i = 0; i < gd.groups.length; i++)
     {
-        groupIds.push(gd.groups[i].id);
+        groupIds.push(gd.groups[i]._id);
     }
 
 
