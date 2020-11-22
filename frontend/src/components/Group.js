@@ -92,21 +92,21 @@ function Group() {
                         </button>
                     </div>
                     <div>
-                    <form onSubmit={addGroup}>
+                    <form onSubmit={doEditGroup}>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="groupname">Group Name</label>
-                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="Enter group name" ref={(c) => addGroupName = c}></input>
+                                <input type="text" class="form-control" id="group-name" aria-describedby="group-name" placeholder="Enter group name" ref={(c) => editGroupName = c}></input>
                                 <small id="group-name" class="form-text text-muted">Name your group</small>
                             </div>
                             <div class="form-group">
                                 <label for="group-description">Group Description</label>
-                                <input type="text" class="form-control" id="group-description" aria-describedby="group-description" placeholder="Enter group description" ref={(c) => addGroupDescription = c}></input>
+                                <input type="text" class="form-control" id="group-description" aria-describedby="group-description" placeholder="Enter group description" ref={(c) => editGroupDescription = c}></input>
                                 <small id="group-description" class="form-text text-muted">Describe your group</small>
                             </div>
                         </div>
                         <div class="modal-footer border-top-0 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success" onClick={addGroup}>Submit</button>
+                        <button type="submit" class="btn btn-success" onClick={doEditGroup}>Submit</button>
                         </div>
                     </form>
                 </div>
