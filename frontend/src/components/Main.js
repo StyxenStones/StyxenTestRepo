@@ -39,7 +39,7 @@ const addGroup = async event => {
                     'Content-Type': 'application/json'
                 }
             });
-
+            window.location.reload(false);
         }
     catch(e)
     {
@@ -92,7 +92,7 @@ function Main() {
             <div class="container">
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
                 Add New Group
-            </button>  
+            </button>
                 <div>
                 <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
