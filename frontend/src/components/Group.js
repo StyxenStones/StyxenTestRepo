@@ -34,9 +34,27 @@ const openEditGroupForm = event => // Needs to open Edit Group form
     event.preventDefault();
     };
 const doEditGroup = event => // Needs to make API call and Replace localstorage with new info
-    {
+{
     event.preventDefault();
-    };
+
+    var obj = {token:token,groupID:groupId,name:editGroupName.value,description:editGroupDescription.value};
+    var js = JSON.stringify(obj);
+
+    //API call
+    try {
+            const response = await fetch(buildPath('api/EditGroup'), {
+                method:'POST',body:js,headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+            window.location.reload(false);
+        }
+    catch(e)
+    {
+        alert(e.toString());
+        return;
+    }
+};
 
 function Group() {
 
