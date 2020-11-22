@@ -72,6 +72,11 @@ const doEditGroup = async event => // Needs to make API call and Replace locals
     }
 };
 
+function createMemberList()
+{
+    
+}
+
 function Group() {
 
     var _gd = localStorage.getItem('group_info');
@@ -134,7 +139,7 @@ function Group() {
                 <div id="memberButtons">
                 </div>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form2">
-                    Edit Group
+                    Add Member
                 </button>
                 <div>
                     <div class="modal fade" id="form2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
