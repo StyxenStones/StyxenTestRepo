@@ -51,7 +51,7 @@ function GroupMoviesList() {
 
     var _gd = localStorage.getItem('group_info');
     var gd = JSON.parse(_gd);
-    groupId = gd.id;
+    var groupId = gd.id;
 
     var obj = {groupID:groupId};
     var js = JSON.stringify(obj);
