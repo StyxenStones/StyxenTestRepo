@@ -26,7 +26,7 @@ function createChat()
 
     for(i = 0; i < chatLog.length; i++)
     {
-        var obj = {userID:members[i].userID};
+        var obj = {userID:chatLog[i].senderID};
         var js = JSON.stringify(obj);
 
         // API Call
