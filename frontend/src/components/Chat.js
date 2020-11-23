@@ -61,7 +61,7 @@ function Chat() {
             xhr.send(js);
 
             var ret = JSON.parse(xhr.responseText);
-            chatLog = ret;
+            chatLog = ret.messages;
         }
     catch(e)
     {
