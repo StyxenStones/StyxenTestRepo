@@ -1,5 +1,6 @@
 import React from 'react';
 
+const app_name = 'cine-mates'
 function buildPath(route) {
     if (process.env.NODE_ENV === 'production') {
         return 'https://' + app_name +  '.herokuapp.com/' + route;
