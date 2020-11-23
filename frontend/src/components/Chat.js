@@ -118,7 +118,7 @@ function Chat() {
     return(
         <div id="chat">
             <h1 id="chatTitle">Chat</h1>
-            {ChatDiv}
+            {ChatList}
             <input type="text" class="form-control" id="messageToSend" placeholder="Write Your Message" ref={(c) => messageToSend = c}></input>
             <button type="submit" class="btn btn-success" onClick={sendMessage}>Send</button>
         </div>
