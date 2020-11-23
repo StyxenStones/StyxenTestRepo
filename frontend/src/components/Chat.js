@@ -11,7 +11,8 @@ function buildPath(route) {
 }
 
 var chatLog;
-var chat;
+var curMessage;
+var Chat;
 var token;
 var groupId;
 var messageToSend;
@@ -22,7 +23,11 @@ function createChat()
 {
     var i;
     nameList = new Array();
-    chat = "Welcome to CineMates Chat!\n";
+    Chat = document.createElement("div");
+    var para = document.createElement("P");
+    curMessage = "Welcome To CineMates Chat!";
+    para.innerHTML = curMessage;
+    Chat.appendChild(para);
 
     for(i = 0; i < chatLog.length; i++)
     {
@@ -48,10 +53,13 @@ function createChat()
 
     for(i = 0; i < chatLog.length; i++)
     {
-        chat += nameList[i];
-        chat += ": ";
-        chat += chatLog[i].message;
-        chat += "<br/>";
+        curMessage = nameList[i];
+        curMessage += ": ";
+        curMessage += chatLog[i].message;
+
+        para = document.createElement("P");;
+        para.innerHTML = curMessage;
+        Chat.appendChild(para);
     }
 }
 
@@ -110,9 +118,9 @@ function Chat() {
     }
 
     return(
-        <div id="chat">
+        <div id="chatDiv">
             <h1 id="chatTitle">Chat</h1>
-            <span id="chat">{chat}</span>
+            {Chat}
             <input type="text" class="form-control" id="messageToSend" placeholder="Write Your Message" ref={(c) => messageToSend = c}></input>
             <button type="submit" class="btn btn-success" onClick={sendMessage}>Send</button>
         </div>
