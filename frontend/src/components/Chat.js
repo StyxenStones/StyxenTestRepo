@@ -50,7 +50,7 @@ function createChat()
         nameList[i] += ": ";
         nameList[i] += chatLog[i].message;
     }
-    nameList.unshift("Welcome To CineMate Chat!");
+    nameList.unshift("Welcome To CineMates Chat!");
 
     let children = nameList.map((val) => {
       return (
