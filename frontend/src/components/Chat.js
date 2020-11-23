@@ -12,7 +12,7 @@ function buildPath(route) {
 
 var chatLog;
 var curMessage;
-var Chat;
+var ChatDiv;
 var token;
 var groupId;
 var messageToSend;
@@ -23,11 +23,11 @@ function createChat()
 {
     var i;
     nameList = new Array();
-    Chat = document.createElement("div");
+    ChatDiv = document.createElement("div");
     var para = document.createElement("P");
     curMessage = "Welcome To CineMates Chat!";
     para.innerHTML = curMessage;
-    Chat.appendChild(para);
+    ChatDiv.appendChild(para);
 
     for(i = 0; i < chatLog.length; i++)
     {
@@ -59,7 +59,7 @@ function createChat()
 
         para = document.createElement("P");;
         para.innerHTML = curMessage;
-        Chat.appendChild(para);
+        ChatDiv.appendChild(para);
     }
 }
 
@@ -118,9 +118,9 @@ function Chat() {
     }
 
     return(
-        <div id="chatDiv">
+        <div id="chat">
             <h1 id="chatTitle">Chat</h1>
-            {Chat}
+            {ChatDiv}
             <input type="text" class="form-control" id="messageToSend" placeholder="Write Your Message" ref={(c) => messageToSend = c}></input>
             <button type="submit" class="btn btn-success" onClick={sendMessage}>Send</button>
         </div>
