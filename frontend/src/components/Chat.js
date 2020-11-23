@@ -58,7 +58,6 @@ function Chat() {
         alert(e.toString());
         return;
     }
-}
 
     return(
         <div id="chat">
