@@ -1,5 +1,14 @@
 import React from 'react';
 
+function buildPath(route) {
+    if (process.env.NODE_ENV === 'production') {
+        return 'https://' + app_name +  '.herokuapp.com/' + route;
+    }
+    else {
+        return 'http://localhost:5000/' + route;
+    }
+}
+
 var chatLog;
 var token;
 var groupId;
@@ -32,7 +41,7 @@ const sendMessage = async event =>
 function Chat() {
 
     var _gd = localStorage.getItem('group_info');
-    gd = JSON.parse(_gd);
+    var gd = JSON.parse(_gd);
     groupId = gd._id;
 
     var _ud = localStorage.getItem('user_data');
