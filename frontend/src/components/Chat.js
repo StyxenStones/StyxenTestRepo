@@ -22,7 +22,6 @@ function createChat()
 {
     var i;
     nameList = new Array();
-    nameList.push("Welcome To CineMates Chat!");
 
     for(i = 0; i < chatLog.length; i++)
     {
@@ -51,6 +50,7 @@ function createChat()
         nameList[i] += ": ";
         nameList[i] += chatLog[i].message;
     }
+    nameList.unshift("Welcome To CineMate Chat!");
 
     let children = nameList.map((val) => {
       return (
