@@ -101,7 +101,7 @@ function Movie() {
         <div>
             <div id="movieInfo">
             <h1 id="title">{title}</h1>
-            <h3 id="overview">{overview}</h3>
+            <h3 id="overview">overview: {overview}</h3>
             <h3 id="releaseDate">{releaseDate}</h3>
             <h3 id="score">{score}</h3>
             </div>
