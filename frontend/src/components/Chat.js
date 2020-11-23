@@ -20,7 +20,7 @@ const sendMessage = async event =>
 {
     event.preventDefault();
 
-    var obj = {token:token,groupID:groupId,userID:userId,message:messageToSend};
+    var obj = {token:token,groupID:groupId,userID:userId,message:messageToSend.value};
     var js = JSON.stringify(obj);
 
     //API call
