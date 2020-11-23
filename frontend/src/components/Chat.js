@@ -74,6 +74,7 @@ function Chat() {
 
             var ret = JSON.parse(xhr.responseText);
             chatLog = ret.messages;
+            createChat();
         }
     catch(e)
     {
