@@ -11,7 +11,7 @@ function buildPath(route) {
 }
 
 var chatLog;
-var ChatDiv;
+var ChatList;
 var token;
 var groupId;
 var messageToSend;
