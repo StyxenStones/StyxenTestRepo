@@ -11,7 +11,6 @@ function buildPath(route) {
 }
 
 var chatLog;
-var curMessage;
 var ChatDiv;
 var token;
 var groupId;
@@ -51,16 +50,19 @@ function createChat()
         }
     }
 
-    for(i = 0; i < chatLog.length; i++)
+    for(i = 0; i < nameList.length; i++)
     {
-        curMessage = nameList[i];
-        curMessage += ": ";
-        curMessage += chatLog[i].message;
-
-        para = document.createElement("P");;
-        para.innerHTML = curMessage;
-        ChatDiv.appendChild(para);
+        nameList[i] += ": ";
+        nameList[i] += chatLog[i].message;
     }
+
+    let children = nameList.map((val) => {
+      return (
+        React.createElement("p", {}, val)
+      )
+    })
+    // the div with children inside
+      ChatList =  React.createElement("div", {className: "contexCon"},children);
 }
 
 const sendMessage = async event =>
