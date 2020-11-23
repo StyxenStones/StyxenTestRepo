@@ -22,7 +22,7 @@ function createChat()
 {
     var i;
     nameList = new Array();
-    chat = "";
+    chat = "Welcome to CineMates Chat!\n";
 
     for(i = 0; i < chatLog.length; i++)
     {
@@ -48,7 +48,7 @@ function createChat()
 
     for(i = 0; i < chatLog.length; i++)
     {
-        chat.concat(nameList[i], ": ", chatLog[i].message);
+        chat.concat(nameList[i], ": ", chatLog[i].message, "\n");
     }
 }
 
