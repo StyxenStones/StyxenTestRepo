@@ -51,7 +51,7 @@ function createChat()
         chat += nameList[i];
         chat += ": ";
         chat += chatLog[i].message;
-        chat += "\n";
+        chat += "<br/>";
     }
 }
 
@@ -112,7 +112,7 @@ function Chat() {
     return(
         <div id="chat">
             <h1 id="chatTitle">Chat</h1>
-            <span id="chat" style="white-space: pre-line">{chat}</span>
+            <span id="chat">{chat}</span>
             <input type="text" class="form-control" id="messageToSend" placeholder="Write Your Message" ref={(c) => messageToSend = c}></input>
             <button type="submit" class="btn btn-success" onClick={sendMessage}>Send</button>
         </div>
