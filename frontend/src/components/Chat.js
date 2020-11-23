@@ -22,6 +22,7 @@ function createChat()
 {
     var i;
     nameList = new Array();
+    nameList.push("Welcome To CineMates Chat!");
 
     for(i = 0; i < chatLog.length; i++)
     {
