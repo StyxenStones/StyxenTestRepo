@@ -43,9 +43,9 @@ const doAddMember = async event => // Needs to Take in userID to add and make A
                     'Content-Type': 'application/json'
                 }
             });
-        }
-        var res = JSON.parse(await response.text());
-        alert(res.error);
+            var res = JSON.parse(await response.text());
+            alert(res.error);
+        }        
     catch(e)
     {
         alert(e.toString());
