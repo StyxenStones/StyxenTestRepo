@@ -41,7 +41,7 @@ const voteYes = async event => // Add movie to yes list and return to main
             return;
         }
     }
-    window.location.href = '/main';
+    window.history.back();
 };
 
 const voteNo = async event => // Add movie to no list and return to main
