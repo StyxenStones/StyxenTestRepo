@@ -43,7 +43,6 @@ const doAddMember = async event => // Needs to Take in userID to add and make A
                     'Content-Type': 'application/json'
                 }
             });
-            window.location.href = '/main'
         }
     catch(e)
     {
