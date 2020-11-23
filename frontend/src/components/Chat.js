@@ -11,10 +11,22 @@ function buildPath(route) {
 }
 
 var chatLog;
+var chat;
 var token;
 var groupId;
 var messageToSend;
 var userId;
+
+function createChat()
+{
+    var i;
+    chat = "";
+
+    for(i = 0; i < chatLog.length; i++)
+    {
+        chat.concat(chatLog[i].senderID, ": ", chatLog[i].message, "\n");
+    }
+}
 
 const sendMessage = async event =>
 {
@@ -72,7 +84,7 @@ function Chat() {
     return(
         <div id="chat">
             <h1 id="chatTitle">Chat</h1>
-            <h3 id="chatTitle">{chatLog}</h3>
+            <h3 id="chatTitle">{chat}</h3>
             <input type="text" class="form-control" id="messageToSend" placeholder="Write Your Message" ref={(c) => messageToSend = c}></input>
             <button type="submit" class="btn btn-success" onClick={sendMessage}>Send</button>
         </div>
