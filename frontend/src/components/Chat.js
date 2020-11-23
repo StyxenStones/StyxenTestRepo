@@ -22,11 +22,6 @@ function createChat()
 {
     var i;
     nameList = new Array();
-    ChatDiv = document.createElement("div");
-    var para = document.createElement("P");
-    curMessage = "Welcome To CineMates Chat!";
-    para.innerHTML = curMessage;
-    ChatDiv.appendChild(para);
 
     for(i = 0; i < chatLog.length; i++)
     {
