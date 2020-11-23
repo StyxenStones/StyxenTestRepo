@@ -48,7 +48,7 @@ function createChat()
 
     for(i = 0; i < chatLog.length; i++)
     {
-        chat.concat(nameList[i], ": ", chatLog[i].message, "\n");
+        chat.concat(nameList[i], ": ", chatLog[i].message);
     }
 }
 
